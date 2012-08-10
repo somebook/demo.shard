@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Demo"]
   s.email       = ["demo@somebook.net"]
   s.homepage    = "https://github.com/itfog/demo.somebook"
-  s.summary     = "Somebook DEMO shard"
+  s.summary     = "Somebook Demo shard"
   s.description = "Rails mountable engine that provides embedded shard functionality"
 
   s.files = Dir["{app,config,lib}/**/*"] + ["Rakefile", "README.rdoc"]
