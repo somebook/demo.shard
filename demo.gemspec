@@ -5,7 +5,7 @@ require "demo/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "demo"
+  s.name        = "demo_somebook"
   s.version     = Demo::VERSION
   s.authors     = ["Demo"]
   s.email       = ["demo@somebook.net"]
