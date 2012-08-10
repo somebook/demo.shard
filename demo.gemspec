@@ -7,15 +7,15 @@ require "demo/version"
 Gem::Specification.new do |s|
   s.name        = "demo"
   s.version     = Demo::VERSION
-  s.authors     = ["Gregory Eremin"]
-  s.email       = ["chez@vim.me"]
-  s.homepage    = "https://github.com/itfog/"
+  s.authors     = ["Demo"]
+  s.email       = ["demo@somebook.net"]
+  s.homepage    = "https://github.com/itfog/demo.somebook"
   s.summary     = "Somebook DEMO shard"
   s.description = "Rails mountable engine that provides embedded shard functionality"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,lib}/**/*"] + ["Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "3.2.8"
+  # s.add_dependency "rails", "3.2.8"
   # s.add_dependency "jquery-rails"
 end
