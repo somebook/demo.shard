@@ -3,6 +3,6 @@
     %h2 Blog is empty
   .block.width360.official
     %span.ribbon
-    = render 'posts', posts: @official_posts, stream: :official
+    = render "demo/blog/posts", posts: @official_posts, stream: :official
   .block.personal
     = render 'posts', posts: @personal_posts, stream: :personal
