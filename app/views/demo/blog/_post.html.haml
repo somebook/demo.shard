@@ -14,7 +14,7 @@
     = link_to post.content(@current_shard_language).title, blog_path(post)
   - if content.photos.empty? && content.videos.empty?
     %p= raw content.cut
-    = link_to t("front.matsuev.blog.read_more") + "...", blog_path(post) if content.has_cut?
+    = link_to t("front.demo.blog.read_more") + "...", blog_path(post) if content.has_cut?
   - elsif content.photos.empty?
     - if content.videos.first.youtube?
       %iframe.video{ src: "http://www.youtube.com/embed/#{content.videos.first.youtube_id}", frameborder: "0", allowfullscreen: true }
@@ -23,10 +23,10 @@
         %source{ src: content.videos.first.url(false, "mp4"), type: 'video/mp4' }
         %source{ src: content.videos.first.url(false, "webm"), type: 'video/webm' }
     %br
-    = link_to t("front.matsuev.blog.read_more") + "...", blog_path(post), class: "post-more-link"
+    = link_to t("front.demo.blog.read_more") + "...", blog_path(post), class: "post-more-link"
   - else
     %a.photo{ href: blog_path(post), style: "font-size: 0px" }
       = image_tag content.photos.first.link("400")
     %br
-    = link_to t("front.matsuev.blog.read_more") + " (" + t("front.matsuev.blog.text") + " + #{content.photos.count} " + t("front.matsuev.blog.photos") + ")...", blog_path(post), class: "post-more-link"
-  = render partial: 'front/matsuev/shared/tag_cloud', locals: { tags: content.tags }
+    = link_to t("front.demo.blog.read_more") + " (" + t("front.demo.blog.text") + " + #{content.photos.count} " + t("front.demo.blog.photos") + ")...", blog_path(post), class: "post-more-link"
+  = render partial: "demo/shared/tag_cloud", locals: { tags: content.tags }

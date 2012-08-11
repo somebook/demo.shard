@@ -13,25 +13,21 @@
   = favicon_link_tag '/ico/shard/favicon.ico', rel: "shortcut icon"
 
   %title= t('front.shard_title')
-  = stylesheet_link_tag "shard"
+  = stylesheet_link_tag "demo"
   %link{ href: "http://vjs.zencdn.net/c/video-js.css", rel: "stylesheet" }
   :erb
     <!--[if IE 8]>  <%= stylesheet_link_tag("ie/ie.css") %> <![endif]-->
-  = javascript_include_tag "shard"
+  = javascript_include_tag "demo"
   %script{ src: "http://vjs.zencdn.net/c/video.js" }
   = yield :head
 %body
-  = render partial: 'front/shared/outdated_browser_body'
-  .bigimg
-    .rel
-      = image_tag "matsuev/bg#{rand(4).succ}.jpg"
-      .cover
+  = render partial: "shared/outdated_browser_body"
   .watermark{ class: lang_code }
   %div{ role: "main", class: index_page? ? "page index" : "page inner #{@static_page_class}" }
     %header
       %nav
         %ul.menu
-          = render 'front/shared/navigation', { part: :top }
+          = render "demo/shared/navigation", { part: :top }
         %ul.language
           - if @current_shard_language
             - @current_shard.shard_languages.each do |lang|
@@ -40,53 +36,49 @@
           %li.bookmark
             %a.add_to_bookmarks{ href: "#" }
               %b
-                %em= t('front.matsuev.bookmarks')
+                %em= t('front.demo.bookmarks')
       %h1{ class: lang_code }
-        = link_to t('front.matsuev.denis_matsuev'), root_path
+        = link_to t('front.demo.title'), root_path
         .light
-    -# - if index_page?
-    -#   %section.player#intro
-    -#     - if @current_shard_language
-    -#       = render 'front/matsuev/shared/videos_on_index'
     %section.social
       %div
-        %h4= t('front.matsuev.social.title')
+        %h4= t('front.demo.social.title')
         %ul
-          = render 'front/shared/social_accounts'
+          = render "demo/shared/social_accounts"
     - if index_page?
       %section.photo
-        = # render "front/matsuev/shared/photos_widget"
+        = # render "demo/shared/photos_widget"
     %section{ class: @unsticked ? "center-section unsticked" : "center-section"}
       %ul.breadcrumbs
         = render_breadcrumbs separator: "&nbsp;/&nbsp;", tag: "li"
       = yield
     %aside
       - unless index_page? || @current_shard_language.nil?
-        = # render "front/matsuev/shared/left_nav"
+        = # render "demo/shared/left_nav"
       %section.next-event
-        = # render "front/matsuev/shared/event_widget"
+        = # render "demo/shared/event_widget"
       - unless events_page?
         %section.calendar
-          = # render "front/matsuev/shared/calend_widget", count: 4
+          = # render "demo/shared/calend_widget", count: 4
     %footer
       .copy
         .title
-          = t('front.matsuev.denis_matsuev')
+          = t('front.demo.denis_demo')
           %br
         .right
           &copy;
-          = t('front.matsuev.copy') + " 2011."
+          = t('front.demo.copy') + " 2011."
       %nav
         %ul.language
           %li.bookmark
             %a.add_to_bookmarks{ href: "" }
               %b
-                %em= t('front.matsuev.bookmarks')
+                %em= t('front.demo.bookmarks')
         .search
           = form_tag(search_path) do
-            = hidden_field_tag :search_input_prompt, t('front.matsuev.search.prompt'), {:class => "search-input-prompt"}
-            = text_field_tag :search, t('front.matsuev.search.prompt'), {:class => "search-input"}
+            = hidden_field_tag :search_input_prompt, t('front.demo.search.prompt'), {:class => "search-input-prompt"}
+            = text_field_tag :search, t('front.demo.search.prompt'), {:class => "search-input"}
         %ul.menu
-          = render 'front/shared/navigation', { part: :bottom }
+          = render "shared/navigation", { part: :bottom }
 :erb
   </html>
