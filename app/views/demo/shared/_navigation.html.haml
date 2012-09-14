@@ -1,9 +1,35 @@
-%li{ class: section == "events" ? "active" : nil }
-  = link_to t('front.matsuev.event.events'), events_path
-%li{ class: section_page == "media#index" ? "active" : nil }
-  = link_to t('front.matsuev.media.media'), media_index_path
-- unless @static_pages[part].nil?
-  - @static_pages[part].each do |sp| 
-    %li{ class: (@static_page && (@static_page.id == sp.id)) ? "active" : nil }
-      - sp_c = sp.contents.for_shard_language(@current_shard_language)[0]
-      = link_to sp_c.title, static_page_path(sp.permalink)
+- if @static_page_class
+  - section = @static_page_class
+- else
+  - if section_page.include? "blog"
+    - section = "news"
+  - elsif section_page.include? "events"
+    - section = "concerts"
+  - elsif section_page.include? "media"
+    - section = "media"
+  - else
+    - section = ""
+.navbar-inner
+  .container-fluid
+    %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .menu.nav-collapse
+      %ul.nav
+        %li{ class: ("active" if section_page.include? "blog") }
+          = link_to t('front.demo.blog.blog'), root_path
+        %li{ class: ("active" if section_page.include? "events") }
+          = link_to t('front.demo.event.events'), events_path
+        %li{ class: ("active" if section_page.include? "albums") }
+          = link_to t('front.demo.media.gallery'), media_albums_path
+        %li{ class: ("active" if section_page.include? "media") }
+          = link_to t('front.demo.media.media'), media_index_path
+        - unless @static_pages[part].nil?
+          - @static_pages[part].each do |sp| 
+            %li{ class: (@static_page && (@static_page.id == sp.id)) ? "active" : nil }
+              - sp_c = sp.contents.for_shard_language(@current_shard_language)[0]
+              = link_to sp_c.title, static_page_path(sp.permalink)
+      = form_tag(search_path, class: %w(navbar-search pull-right)) do
+        = hidden_field_tag :search_input_prompt, t('front.demo.search.prompt')#, {:class => "search-input-prompt"}
+        = text_field_tag :search, nil, class: %w(search-query span2), placeholder: t('front.demo.search.prompt')

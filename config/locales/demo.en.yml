@@ -1,4 +1,18 @@
 en:
   front:
     demo:
-      foo: bar
+      title: Mediablog
+      follow_us: Follow Us
+      blog:
+        blog: Blog
+        posts: Posts
+        published_at: Published At
+        read_more: Read More
+      event:
+        events: Events
+        upcoming: Upcoming Events
+      media:
+        media: Media
+        gallery: Gallery
+      search:
+        prompt: Search

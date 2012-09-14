@@ -1,4 +1,18 @@
 ru:
   front:
     demo:
-      foo: bar
+      title: Медиаблог
+      follow_us: Присоединяйтесь к нам
+      blog:
+        blog: Блог
+        posts: Сообщения
+        published_at: Опубликовано
+        read_more: Читать далее
+      event:
+        events: События
+        upcoming: Ближайшие события
+      media:
+        media: Медиа
+        gallery: Галерея
+      search:
+        prompt: Поиск

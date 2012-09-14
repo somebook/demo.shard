@@ -1,0 +1,14 @@
+.btn-group.pull-right
+  %a.btn.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" }
+    %i.icon-th
+    Календарь
+    %span.caret
+  .dropdown-menu
+    .filter.date
+      %form
+        %select
+          %option{ value: "", selected: ("selected" unless params[:date])}= t('front.matsuev.event.upcoming')
+          - months.each do |year|
+            %optgroup{ label: year.keys[0] }
+              - year.values[0].each do |month|
+                %option{ value: "#{year.keys[0]}-#{month}", selected: ("selected" if params[:date] == "#{year.keys[0]}-#{month}")}= I18n.l Time.mktime(2000, month), format: "%B", locale: @current_shard_language.language.code

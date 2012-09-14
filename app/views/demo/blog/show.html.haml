@@ -1,21 +1,34 @@
-%article.post
-  %time
-    %em= @post.created_at.day
-    = t("months.m#{@post.created_at.month.to_s}")
-  - content = @post.contents.for_shard_language(@current_shard_language).first
-  %h2
-    = content.title
-    - if content.tags.include? @review_tag
-      %span.label-review= @review_tag.name
-  - unless content.photos.empty?
-    .fotorama{ "data-width" => 640, "data-height" => 480 }
-      -content.photos.each do |photo|
-        = image_tag photo.url
-  - unless content.videos.empty?
-    .videos
-      - content.videos.each do |video|
-        = render partial: "shared/video_player", locals: { video: video }
-  %p= raw content.uncut
+- content = @post.contents.for_shard_language(@current_shard_language).first
+.post
+  %h2= content.title
+  .meta-wrap
+    .meta.pull-left
+      %span.dateTime
+        = t("front.demo.blog.published_at")
+        = @post.created_at.strftime("%d.%m.%Y")
+        = "/"
+        = @post.created_at.strftime("%H:%M")
+    .meta-comments.pull-right
+      = link_to(blog_path(@post)) do
+        = t("front.demo.comments")
+        .comments-bubble.pull-right
+          %span.comment-num= content.comments_count
+  - if content.photos.empty? && content.videos.empty?
+    %p= raw content.uncut
+  - elsif content.photos.empty?
+    - if content.videos.first.youtube?
+      %iframe.video{ src: "http://www.youtube.com/embed/#{content.videos.first.youtube_id}", frameborder: "0", allowfullscreen: true }
+    - else
+      %video{ id: "video_#{content.videos.first.id}", class: "video-js vjs-default-skin", controls: true, preload: "auto", :"data-setup" => '{}' }
+        %source{ src: content.videos.first.url(false, "mp4"), type: 'video/mp4' }
+        %source{ src: content.videos.first.url(false, "webm"), type: 'video/webm' }
+    %br
+    .readmore= link_to t("front.demo.blog.read_more") + "...", blog_path(@post), class: %w(readmore pull-right)
+  - else
+    %a.photo{ href: blog_path(@post), style: "font-size: 0px" }
+      = image_tag content.photos.first.link("400")
+    %br
+    .readmore= link_to t("front.demo.blog.read_more") + " (" + t("front.demo.blog.text") + " + #{content.photos.count} " + t("front.demo.blog.photos") + ")...", blog_path(@post), class: %w(readmore pull-right)
   = render partial: "demo/shared/tag_cloud", locals: { tags: content.tags.misc }
   = render "shared/share_buttons"
   = render partial: "shared/commentatr_comments", locals: { entry_id: content.commentatr_hash, lang: @current_shard_language.language.code }

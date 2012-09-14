@@ -4,6 +4,8 @@
 #= require bootstrap-scrollspy
 #= require bootstrap-carousel
 #= require_self
+#= require_tree ./demo
+#= require jquery.lightbox-0.5
 
 
 jQuery ->

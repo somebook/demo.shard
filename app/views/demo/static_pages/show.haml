@@ -1,6 +1,5 @@
-.static-page
-  .hat
-    .title= @content.title
-  .body= raw @content.uncut
-  .tags
+%h2= @content.title
+%hr.bolded
+.row-fluid
+  = raw @content.uncut
   = render 'shared/share_buttons'

@@ -13,7 +13,7 @@
   %link{ rel: "icon", href: "/favicon.ico", type: "image/x-icon"}
   %link{ rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon"}
 
-  %title= t('front.demo.aleksandr_demo')
+  %title= t('front.demo.title')
   = stylesheet_link_tag "demo"
   %link{ href: 'http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic', rel: 'stylesheet', type: 'text/css'}
   %link{ href: "http://vjs.zencdn.net/c/video-js.css", rel: "stylesheet" }
@@ -31,309 +31,24 @@
       .row-fluid
         .logobar
           .logo.pull-left
-            %a{ href:"index.html" } Медиаблог
-          .login-signup.pull-right
-            %a{"data-toggle" => "modal", :href => "#loginModal" } Войти
-            |
-            %a{"data-toggle" => "modal", :href => "#registerModal" } Зарегистрироваться
+            = link_to t('front.demo.title'), root_path
       / /.Logo Bar & Login
-      / .Navigation Bar
       #access.navbar
-        .navbar-inner
-          .container-fluid
-            %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            .menu.nav-collapse
-              %ul.nav
-                %li
-                  %a{ href:"news.html" } Блог
-                %li
-                  %a{ href:"events.html" } События
-                %li
-                  %a{ href:"photos.html" } Галерея
-                %li
-                  %a{ href:"media.html" } Музыка
-                %li
-                  %a{ href:"about.html" } Биография
-                %li
-                  %a{ href:"contact.html" } Контакты
-              %form.navbar-search.pull-right
-                %input.search-query.span2{:placeholder => "Search", :type => "text"}
-      / /.Navigation Bar
+        = render partial: "demo/shared/navigation", locals: { part: :main }
       .row-fluid
         .span9
-          / .Carousel
-          #myCarousel.carousel.slide
-            .carousel-inner
-              / .Carousel Item
-              .item
-                %a{ href:"single.html"}
-                  %img.attachment-feature-home{:alt => "water", :src => "images/img-2.jpg", :title => "water"}/
-                %h4
-                  %a{ href:"single.html" } Первая строка Lorem Ipsum!
-                .carousel-caption
-                  %p
-                    Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э. Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum, "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32.
-              / /.Carousel Item
-              / .Carousel Item Starting With Active
-              .item.active
-                %a{ href:"single.html"}
-                  %img.attachment-feature-home{:alt => "water", :src => "images/img-1.jpg", :title => "water"}/
-                %h4
-                  %a{ href:"single.html" } Цицероном в 45 году н.э
-                .carousel-caption
-                  %p
-                    За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты)....
-              / /.Carousel Item
-            / .Carousel Arrows
-            %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel" } ‹
-            %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel" } ›
-            / /.Carousel Arrows
-          / /.Carousel
           .row-fluid
-            %hr.bolded
-              / .Article Post
-              .post
-                %h2
-                  %a{ href:"single.html" } Ричард МакКлинток, профессор латыни
-                .meta-wrap
-                  .meta.pull-left
-                    %span.dateTime
-                      Опубликовано
-                      %span.author
-                        %a{ href:"#" } admin
-                      at 11:20 am April 15, 2012
-                  .meta-comments.pull-right
-                    %a{ href:"single.html#comments"}
-                      Комментарии
-                      .comments-bubble.pull-right
-                        %span.comment-num 100
-                %a{ href:"single.html"}
-                  %img.attachment-post-thumbnail{:alt => "Water", :src => "images/img-3.jpg", :title => "Water"}/
-                %p
-                  Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения
-                %p
-                  Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur", и занялся его поисками в классической латинской литературе.
-                %p
-                  Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов
-                .readmore
-                  %a.readmore.pull-right{:href => "single.html" } Читать дальше & Комментировать
-              / /.Article Post
-              / .Article Post
-              .post
-                %h2
-                  %a{ href:"single.html" } Отдалённо не напоминают латынь.
-                .meta-wrap
-                  .meta.pull-left
-                    %span.dateTime
-                      Опубликовал
-                      %span.author
-                        %a{ href:"#" } admin
-                      at 11:20 am April 15, 2012
-                  .meta-comments.pull-right
-                    %a{ href:"single.html#comments"}
-                      Комментарии
-                      .comments-bubble.pull-right
-                        %span.comment-num 100
-                %a{ href:"single.html"}
-                  %img.attachment-post-thumbnail{:alt => "Water", :src => "images/img-4.jpg", :title => "Water"}/
-                %p
-                  Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.
-                %p
-                  В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацей или "невозможных" слов. .
-                .readmore
-                  %a.readmore.pull-right{:href => "single.html" } Читать дальше & Комментировать
-              / /.Article Post
-              / .Article Post
-              .post
-                %h2
-                  %a{ href:"single.html" } Набор моделей предложений
-                .meta-wrap
-                  .meta.pull-left
-                    %span.dateTime
-                      Опубликовано
-                      %span.author
-                        %a{ href:"#" } admin
-                      at 11:20 am April 15, 2012
-                  .meta-comments.pull-right
-                    %a{ href:"single.html#comments"}
-                      Комментарии
-                      .comments-bubble.pull-right
-                        %span.comment-num 100
-                %a{ href:"single.html"}
-                  %img.attachment-post-thumbnail{:alt => "Water", :src => "images/img-5.jpg", :title => "Water"}/
-                %p
-                  Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений.
-                .readmore
-                  %a.readmore.pull-right{:href => "single.html" } Читать дальше & Комментировать
-              / /.Article Post
+            = yield
           / /row
         / /span
         / Top Sidebar
         .span3.sidebar
-          %h4 Присоединяйтесь к нам
-          .social
-            %ul
-              %li
-                %a{ href:""}
-                  %i.icon24-facebook
-              %li
-                %a{ href:""}
-                  %i.icon24-twitter
-              %li
-                %a{ href:""}
-                  %i.icon24-vkontacte
-              %li
-                %a{ href:""}
-                  %i.icon24-google-plus
-              %li
-                %a{ href:""}
-                  %i.icon24-picasa
-              %li
-                %a{ href:""}
-                  %i.icon24-youtube
-              %li
-                %a{ href:""}
-                  %i.icon24-amazon
-              %li
-                %a{ href:""}
-                  %i.icon24-rss
-          %h4 Ближайщие события
-          %table.table
-            %thead
-            %tbody
-              %tr
-                %td
-                  %a{ href:"" } Фестиваль этнической музыки "Дикая мята"
-                %td
-                  %span.badge 24.08.12
-              %tr
-                %td
-                  %a{ href:"" } Концерт в 16 тонн
-                %td
-                  %span.badge 28.08.12
-              %tr
-                %td
-                  %a{ href:"" } Учатстие в открытие выставки "Произведения"
-                %td
-                  %span.badge 28.08.12
-          %h4 Последние сообщения
-          .latest
-            .latest-post
-              %h5
-                %a{ href:"single.html" } Первая строка Lorem Ipsum!
-              .lastest-post.img-wrap
-                .time-ago
-                  %a{ href:"single.html" } 1 hour ago
-                %p
-                  Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.
-          / /span
-          .latest
-            .latest-post
-              %h5
-                %a{ href:"single.html" } Ричард МакКлинток, профессор латыни
-              .lastest-post.img-wrap
-                .time-ago
-                  %a{ href:"single.html" } 3 hours ago
-                %p
-                  Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.
-          / /span
-          .latest
-            .latest-post
-              %h5
-                %a{ href:"single.html" } Отдалённо не напоминают латынь.
-              .lastest-post.img-wrap
-                .time-ago
-                  %a{ href:"single.html" } 8 hours ago
-                %p
-                  Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.
-        / /span
+          = render "demo/shared/social_accounts"
+          = render "demo/shared/event_widget"
+          = render "demo/shared/last_posts"
       / /row
       / .BackToTopBtn
       #toTop.btn
         Наверх
       / /.BackToTopBtn
-      %hr
-        / .Footer
-        %footer
-          .row-fluid
-            .span3
-              %h4 Будьте везде!
-              %ul.footerlists
-                %li
-                  %a{ href:"" } Twitter
-                %li
-                  %a{ href:"" } Facebook
-            / /span
-            .span3
-              %h4 Автор
-              %ul.footerlists
-                %li
-                  %a{ href:"" } @ИмяПользователя
-            / /span
-            .span3
-              %h4 Категории
-              %ul.footerlists
-                %li
-                  %a{ href:"" } Музыка
-                %li
-                  %a{ href:"" } Видео
-                %li
-                  %a{ href:"" } Путешествия
-            / /span
-            .span3
-              %h4 Ссылки
-              %ul.footerlists
-                %li
-                  %a{ href:"" } Сообщество Вконтакте
-                %li
-                  %a{ href:"" } Сообщество на Facebook
-            / /span
-          %hr
-            .row-fluid
-              .span4
-                %p
-                  \© Медиаблог 2012
-              / /span
-        / /.Footer
-    / /.Content Wrapper
-    / .Login Modal
-    #loginModal.modal.hide
-      .modal-header
-        %button.close{"data-dismiss" => "modal" } ×
-        %h3 Login
-      .modal-body
-        %form
-          %label Username
-          %input.span5{:placeholder => "Username", :type => "text"}
-            %label Password
-            %input.span5{:placeholder => "Password", :type => "text"}
-              %br
-                %button.btn.btn-primary{:type => "submit" } Login
-                |
-                %button.btn{:type => "submit" } Forgot Password?
-      .modal-footer
-        Not Registered With Us?
-        %a{"data-dismiss" => "modal", "data-toggle" => "modal", :href => "#registerModal" } Register
-        Today.
-    / /.Login Modal
-    / .Register Modal
-    #registerModal.modal.hide
-      .modal-header
-        %button.close{"data-dismiss" => "modal" } ×
-        %h3 Register
-      .modal-body
-        %form
-          %label Username
-          %input.span5{:placeholder => "Username", :type => "text"}
-            %label Email
-            %input.span5{:placeholder => "eg. username@youremail.com", :type => "text"}
-              %label Password
-              %input.span5{:placeholder => "Password", :type => "text"}
-                %label Password Again
-                %input.span5{:placeholder => "Password Again", :type => "text"}
-                  %br
-                    %button.btn.btn-primary{:type => "submit" } Sign Up
-      .modal-footer
+      = render "demo/shared/footer"

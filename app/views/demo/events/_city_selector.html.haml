@@ -1,6 +1,12 @@
-.filter.city
-  %form
-    %select
-      %option{ value: "", selected: ("selected" unless params[:city])}= t('front.matsuev.event.cities')
-      - cities.each do |city|
-        %option{ value: city, selected: ("selected" if params[:city] == city)}= city
+.btn-group.pull-right
+  %a.btn.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" }
+    %i.icon-th
+    Место
+    %span.caret
+  .dropdown-menu
+    .filter.date
+      %form
+        %select
+          %option{ value: "", selected: ("selected" unless params[:city])}= t('front.demo.event.cities')
+          - cities.each do |city|
+            %option{ value: city, selected: ("selected" if params[:city] == city)}= city
