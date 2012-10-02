@@ -2,6 +2,5 @@
   %h4= t('front.demo.blog.posts')
   - @last_posts.each do |post|
     .latest{ class: ("current" if current_page?(blog_path(post))) }
-      .latest-post
-        %h5
-          = link_to post.content(@current_shard_language).title, blog_path(post)
+      %h5
+        = link_to post.content(@current_shard_language).title, blog_path(post)
