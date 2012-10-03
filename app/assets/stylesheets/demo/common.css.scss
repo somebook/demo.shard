@@ -1,10 +1,14 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-
+body {
+ background: image-url('demo/stripes.png');
+ text-shadow: 0 1px 0 rgba(255,255,255, .5); 
+}
 .content-wrapper {
   max-width: 1200px;
-  margin: 0 auto 0 0;
+  margin: 0 auto;
+  background: #fff;
 }
 .advert {
   margin-bottom: 10px;
@@ -78,6 +82,11 @@
 .lastest-post.img-wrap a, #latest-post p a {
   text-decoration: none;
 }
+.latest-post {
+  h5 {
+   margin: 0;
+  }
+}
 .meta-wrap {
   float: left;
   margin-bottom: 10px;
@@ -132,7 +141,7 @@ a {
   }
 }
 hr {
-  border-color: #0088CC;
+  border-color: #eee;
   &.bolded {
     border-width: 2px;
   }
@@ -176,7 +185,7 @@ hr {
   .current {
     margin-right: 4px;
     padding: 3px 6px;
-    background: none repeat scroll 0 0 #0088CC;
+    background: none repeat scroll 0 0 #eee;
     border: 1px solid #89ADCF;
     color: #FFFFFF;
   }
@@ -265,7 +274,6 @@ hr {
   }
 }
 .latest {
-  margin: 0 0 18px;
   p {
     margin: 0;
   }
@@ -318,8 +326,28 @@ hr {
   li {
     display: inline;
   }
+  a:hover {  text-decoration: none;}
 }
 .events {
+  .thumbnail{
+    min-height:150px;
+    &:hover {
+    background: #eee;
+    color: #fff;
+    border: solid 1px #eee;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    h3 {
+      a {
+      color: #fff;
+      }
+    }
+    .badge {
+     background: #fff;
+     color: #eee;
+     text-shadow: none;
+    }
+    }
+  }
   h3 {
     line-height: 18px;
     font-size: 18px;
@@ -482,4 +510,28 @@ hr {
   font-size: 16px;
   line-height: 20px;
   margin: 0 0 30px;
+}
+.share { 
+    margin: 30px 0;
+    min-height: 35px;
+  .item {
+    display:inline-block;
+    vertical-align: top;
+    padding: 3px;
+  }
+}
+.ajax-pagination {  
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    margin: 40px 0;
+    padding: 5px;
+    text-align: center;}
+    
+.city { margin: 0 3px 0 0;} 
+
+.bordered { border:solid 1px #ddd;}
+
+footer {
+  h4 { margin: 0 0 12px 0;}
 }
