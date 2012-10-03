@@ -28,7 +28,7 @@
     %a.photo{ href: blog_path(@post), style: "font-size: 0px" }
       = image_tag content.photos.first.link("400")
     %br
-    .readmore= link_to t("front.demo.blog.read_more") + " (" + t("front.demo.blog.text") + " + #{content.photos.count} " + t("front.demo.blog.photos") + ")...", blog_path(@post), class: %w(readmore pull-right)
+    .readmore= link_to t("front.demo.blog.read_more") + "...", blog_path(@post), class: %w(readmore pull-right)
   = render partial: "demo/shared/tag_cloud", locals: { tags: content.tags.misc }
   = render "shared/share_buttons"
   = render partial: "shared/commentatr_comments", locals: { entry_id: content.commentatr_hash, lang: @current_shard_language.language.code }
