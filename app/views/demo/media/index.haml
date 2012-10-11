@@ -2,18 +2,16 @@
 - unless @albums.empty?
   .clearfix
     %h3= t('front.matsuev.media.album.photos')
-    %ul.thumbs.albums
+    %ul.thumbnails
       - @albums.each do |album|
         - next if album.photos.empty?
-        %li
-          .hide
-            %a{ href: media_album_path(album), title: album.title }
-              %span.stack.level0
-              %span.stack.level1
-              %span.stack.level2
-              = image_tag(album.photos.first.link('160c'))
-              .info
-                %span= album.title
+        %li.span3
+          %a{ href: media_album_path(album), title: album.title }
+            %span.stack.level0
+            %span.stack.level1
+            %span.stack.level2
+            %span.thumbnail= image_tag(album.photos.first.link('160c'))
+            %span.info= album.title
 
   - unless @posts.empty?
     .clearfix.announce
@@ -33,24 +31,23 @@
   - unless @video_posts.empty?
     .clearfix
       %h3= t('front.matsuev.media.video.videos')
-      %ul.thumbs.video
+      %ul.thumbnails.video
         - @video_posts.each do |post|
           - content = post.contents.for_shard_language(@current_shard_language).first
           - if(content)
             - video=content.videos.first
             - if video
               %li
-                .hide
-                  - if video.youtube?
-                    %iframe{:allowfullscreen => "", :frameborder => "0", :height => "auto", :src => "http://www.youtube.com/embed/#{content.videos.first.youtube_id}", :width => "100%"}
-                  - else
-                    %video{ id: "video_#{content.videos.first.id}", class: "video-js vjs-default-skin", controls: true, preload: "auto", width: "230", height: "150", :"data-setup" => '{}' }
-                      %source{ src: content.videos.first.url(false, "mp4"), type: 'video/mp4' }
-                      %source{ src: content.videos.first.url(false, "webm"), type: 'video/webm' }
-                  .info
-                    %span
-                      = link_to post.content(@current_shard_language).title, blog_path(post)
-                    %span= raw content.cut
+                - if video.youtube?
+                  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "auto", :src => "http://www.youtube.com/embed/#{content.videos.first.youtube_id}", :width => "100%"}
+                - else
+                  %video{ id: "video_#{content.videos.first.id}", class: "video-js vjs-default-skin", controls: true, preload: "auto", width: "230", height: "150", :"data-setup" => '{}' }
+                    %source{ src: content.videos.first.url(false, "mp4"), type: 'video/mp4' }
+                    %source{ src: content.videos.first.url(false, "webm"), type: 'video/webm' }
+                .info
+                  %span
+                    = link_to post.content(@current_shard_language).title, blog_path(post)
+                  %span= raw content.cut
 - unless @audio_albums.empty?
   .clearfix
 
@@ -76,15 +73,14 @@
     .width50.cd
       .block
         %h3= t('front.matsuev.media.audio_alubums')
-        %ul.clearfix.thumbs.audio
+        %ul.thumbnails.audio
           - @audio_albums.each do |album|
             %li
-              .hide
+              %a{class: :album_link, "data-id" => "#{album.id}"}
+                %img{:src => "#{album.cover.url(:thumb)}"}
+              .a-title
                 %a{class: :album_link, "data-id" => "#{album.id}"}
-                  %img{:src => "#{album.cover.url(:thumb)}"}
-                .a-title
-                  %a{class: :album_link, "data-id" => "#{album.id}"}
-                    =album.name
+                  =album.name
                 .info
                   %span 
                     =album.description

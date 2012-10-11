@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+h1, h2, h3, h4, h5, h6 { margin: 0 0 18px;}
+
 body {
  background: image-url('demo/stripes.png');
  text-shadow: 0 1px 0 rgba(255,255,255, .5); 
@@ -328,6 +330,46 @@ hr {
   }
   a:hover {  text-decoration: none;}
 }
+span.thumbnail {  background: none repeat scroll 0 0 #FFFFFF;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+}
+.stack {
+  position: absolute;
+  border: solid 1px #ddd;
+  background: #fff;
+  width: 100%;
+  border-radius: 3px;
+  &.level0 {
+    left: 6px;
+    top: -6px;
+    width: 168px;
+    height: 168px;
+    z-index: 0;
+  }
+  &.level1 {
+    left: 4px;
+    top: -4px;
+    width: 168px;
+    height: 168px;
+    z-index: 1;
+  }
+  &.level2 {
+    left: 2px;
+    top: -2px;
+    width: 168px;
+    height: 168px;
+    z-index: 2;
+  }
+}
+
 .events {
   .thumbnail{
     min-height:150px;
@@ -355,6 +397,7 @@ hr {
     margin: 0 0 12px;
   }
 }
+.thumbnails>li { position: relative;}
 .row-fluid .thumbnails [class*="span"]:first-child + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"],
 .row-fluid .thumbnails [class*="span"]:first-child + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] {
   margin-left: 0;
