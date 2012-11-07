@@ -374,18 +374,20 @@ img {
   .thumbnail{
     min-height:150px;
     &:hover {
-    background: #eee;
+    background: #0088CC;
     color: #fff;
-    border: solid 1px #eee;
+    text-shadow: none;
+    border: solid 1px #0088CC;
     box-shadow: 0 0 5px rgba(0,0,0,.3);
     h3 {
       a {
       color: #fff;
+      text-shadow: none;
       }
     }
     .badge {
      background: #fff;
-     color: #eee;
+     color: #0088CC;
      text-shadow: none;
     }
     }
@@ -397,6 +399,8 @@ img {
     margin: 0 0 12px;
   }
 }
+img.photo { float:left; margin: 0 20px 20px 0; max-width: 100%; }
+
 .thumbnails>li { position: relative;}
 .row-fluid .thumbnails [class*="span"]:first-child + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"],
 .row-fluid .thumbnails [class*="span"]:first-child + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] + [class*="span"] {
