@@ -2,15 +2,21 @@
 @import "bootstrap-responsive";
 
 h1, h2, h3, h4, h5, h6 { margin: 0 0 18px;}
-
+a { color: #17317C;}
 body {
  background: image-url('demo/stripes.png');
  text-shadow: 0 1px 0 rgba(255,255,255, .5); 
 }
 .content-wrapper {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
   background: #fff;
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 .advert {
   margin-bottom: 10px;
@@ -28,7 +34,7 @@ body {
   font-size: 40px;
   margin: 25px 0 25px;
   a {
-    color: #000;
+    color: #45537C;
     &:hover {
       color: #999;
       text-decoration: none;
@@ -38,6 +44,7 @@ body {
 .navbar-inner {
   padding-left: 0;
   padding-right: 0;
+  background: #45537C;
 }
 .navbar {
   .nav {
@@ -48,6 +55,10 @@ body {
     }
   }
 }
+.navbar .nav > li > a { color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.4)}
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+    background-color: rgba(0, 0, 0, 0.15); }
+.navbar-search .search-query { background: #fff;}
 #toTop {
   text-align: center;
   padding: 5px;
@@ -57,6 +68,7 @@ body {
   cursor: pointer;
   display: none;
 }
+.row-fluid .span9 { min-height: 600px;}
 .side-advert {
   margin-bottom: 15px;
 }
@@ -579,6 +591,15 @@ img.photo { float:left; margin: 0 20px 20px 0; max-width: 100%; }
 
 .bordered { border:solid 1px #ddd;}
 
-footer {
-  h4 { margin: 0 0 12px 0;}
+footer {  background: #45537C; font-size: 13px;
+    border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    margin: 0 -20px;
+    padding: 20px; color: rgba(255,255,255, .7); text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  h4 { margin: 0 0 12px 0; font-weight: normal; color: rgba(255,255,255, .7); font-size: 18px;}
+  a { color: #fff; font-weight: bold; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    &:hover { color: rgba(255,255,255, .7); text-decoration: none;
+    }
+}
 }
