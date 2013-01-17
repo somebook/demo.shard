@@ -15,7 +15,7 @@
 
   %title= t('front.demo.title')
   = stylesheet_link_tag "demo"
-  %link{ href: 'http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic', rel: 'stylesheet', type: 'text/css'}
+  %link{:href => "http://fonts.googleapis.com/css?family=Scada|Prosto+One&subset=latin,cyrillic", :rel => "stylesheet", :type => "text/css"}
   %link{ href: "http://vjs.zencdn.net/c/video-js.css", rel: "stylesheet" }
   :erb
     <!--[if IE 8]>  <%= stylesheet_link_tag("ie/ie.css") %> <![endif]-->
@@ -43,9 +43,9 @@
         / /span
         / Top Sidebar
         .span3.sidebar
-          = render "demo/shared/social_accounts"
           = render "demo/shared/event_widget"
           = render "demo/shared/last_posts"
+          = render "demo/shared/social_accounts"          
       / /row
       / .BackToTopBtn
       #toTop.btn

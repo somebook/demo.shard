@@ -1,27 +1,10 @@
 %h4= t("front.demo.follow_us")
-.social
-  %ul
-    %li
-      %a{ href: "#" }
-        %i.icon24-facebook
-    %li
-      %a{ href: "#" }
-        %i.icon24-twitter
-    %li
-      %a{ href: "#" }
-        %i.icon24-vkontacte
-    %li
-      %a{ href: "#" }
-        %i.icon24-google-plus
-    %li
-      %a{ href: "#" }
-        %i.icon24-picasa
-    %li
-      %a{ href: "#" }
-        %i.icon24-youtube
-    %li
-      %a{ href: "#" }
-        %i.icon24-amazon
-    %li
-      %a{ href: "#" }
-        %i.icon24-rss
+.pluso.pluso-theme-color.pluso-round
+  .pluso-more-container
+    %a.pluso-more{:href => ""}
+  %a.pluso-facebook
+  %a.pluso-twitter
+  %a.pluso-vkontakte
+  %a.pluso-livejournal
+:javascript
+  if(!window.pluso){pluso={version:'0.9.1',url:'http://share.pluso.ru/'};h=document.getElementsByTagName('head')[0];l=document.createElement('link');l.href=pluso.url+'pluso.css';l.type='text/css';l.rel='stylesheet';s=document.createElement('script');s.src=pluso.url+'pluso.js';s.charset='UTF-8';h.appendChild(l);h.appendChild(s)}
