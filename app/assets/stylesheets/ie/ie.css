@@ -1,0 +1,4 @@
+.navbar .nav .active > a, .navbar .nav .active > a:hover { background-color: #3a4669; }
+.page { border: solid 1px #ddd;}
+
+.ajax-pagination { background: #f6f6f6; border: solid 1px #eee;}

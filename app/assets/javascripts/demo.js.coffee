@@ -3,6 +3,7 @@
 #= require bootstrap-dropdown
 #= require bootstrap-scrollspy
 #= require bootstrap-carousel
+#= require bootstrap-collapse
 #= require_self
 #= require_tree ./demo
 #= require jquery.lightbox-0.5
