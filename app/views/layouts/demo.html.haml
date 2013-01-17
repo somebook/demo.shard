@@ -27,28 +27,29 @@
   %body
     / .Content Wrapper
     .container-fluid.content-wrapper
-      / .Logo Bar & Login
-      .row-fluid
-        .logobar
-          .logo.pull-left
-            = link_to t('front.demo.title'), root_path
-      / /.Logo Bar & Login
-      #access.navbar
-        = render partial: "demo/shared/navigation", locals: { part: :main }
-      .row-fluid
-        .span9
-          .row-fluid
-            = yield
-          / /row
-        / /span
-        / Top Sidebar
-        .span3.sidebar
-          = render "demo/shared/event_widget"
-          = render "demo/shared/last_posts"
-          = render "demo/shared/social_accounts"          
-      / /row
-      / .BackToTopBtn
-      #toTop.btn
-        Наверх
-      / /.BackToTopBtn
-      = render "demo/shared/footer"
+      .page
+        / .Logo Bar & Login
+        .row-fluid
+          .logobar
+            .logo.pull-left
+              = link_to t('front.demo.title'), root_path
+        / /.Logo Bar & Login
+        #access.navbar
+          = render partial: "demo/shared/navigation", locals: { part: :main }
+        .row-fluid
+          .span9
+            .row-fluid
+              = yield
+            / /row
+          / /span
+          / Top Sidebar
+          .span3.sidebar
+            = render "demo/shared/event_widget"
+            = render "demo/shared/last_posts"
+            = render "demo/shared/social_accounts"          
+        / /row
+        / .BackToTopBtn
+        #toTop.btn
+          Наверх
+        / /.BackToTopBtn
+        = render "demo/shared/footer"
